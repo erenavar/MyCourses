@@ -15,10 +15,6 @@ export default function CourseInput({ visible }) {
       animationType="slide"
       //transparent={true}
       visible={visible}
-      onRequestClose={() => {
-        Alert.alert("Modal has been closed.");
-        setModalVisible(!modalVisible);
-      }}
     >
       <View style={styles.container}>
         <Image
