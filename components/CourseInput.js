@@ -6,6 +6,7 @@ import {
   Button,
   Image,
   TextInput,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 
@@ -23,16 +24,12 @@ export default function CourseInput({ visible }) {
         />
         <TextInput style={styles.inputStyle} placeholder="Add New Course" />
         <View style={styles.buttonContainer}>
-          <View style={styles.buttonStyle}>
-            <Button
-              style={styles.buttonStyle}
-              title="Add"
-              color="rebeccapurple"
-            />
-          </View>
-          <View style={styles.buttonStyle}>
-            <Button title="Cancel" color="rebeccapurple" />
-          </View>
+          <TouchableOpacity style={styles.buttonStyle1} underlayColor="#fff">
+            <Text style={styles.textStyle}>Add Course</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonStyle2} underlayColor="#fff">
+            <Text style={styles.textStyle}>Cancel</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </Modal>
@@ -40,11 +37,36 @@ export default function CourseInput({ visible }) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { justifyContent: "center", alignItems: "center", marginTop: 60 },
   imageStyle: {
-    height: 200,
-    width: 200,
+    height: 150,
+    width: 150,
   },
-  inputStyle: {},
-  buttonContainer: {},
+  inputStyle: {
+    marginBottom: 40,
+  },
+  buttonContainer: {
+    width: "70%",
+  },
+  buttonStyle1: {
+    backgroundColor: "rebeccapurple",
+    height: 35,
+    borderRadius: "12px",
+    marginBottom: 15,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonStyle2: {
+    backgroundColor: "rebeccapurple",
+    height: 35,
+    borderRadius: "12px",
+    marginBottom: 15,
+    backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textStyle: {
+    fontSize: 20,
+    color: "white",
+  },
 });
