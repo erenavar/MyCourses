@@ -13,6 +13,11 @@ export default function App() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const [courses, setCourses] = useState(["React Native", "C#"]);
   const startModal = () => setModalIsVisible(true);
+  const endModal = () => setModalIsVisible(false);
+  const addCourse = (courseTitle) => {
+    endModal();
+  };
+
   return (
     <>
       <StatusBar style="light" />
@@ -24,7 +29,11 @@ export default function App() {
         >
           <Text style={styles.loginText}>Add Course</Text>
         </TouchableOpacity>
-        <CourseInput visible={modalIsVisible} />
+        <CourseInput
+          visible={modalIsVisible}
+          onAddCourse={addCourse}
+          onCancel={endModal}
+        />
 
         <FlatList
           style={styles.coursesStyle}

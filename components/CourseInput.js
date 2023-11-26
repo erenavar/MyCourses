@@ -3,14 +3,23 @@ import {
   Text,
   View,
   Modal,
-  Button,
   Image,
   TextInput,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
-export default function CourseInput({ visible }) {
+export default function CourseInput({ visible, onAddCourse, onCancel }) {
+  const [enteredCourseText, setEnteredCourseText] = useState("");
+
+  const addCourseHandler = () => {
+    onAddCourse(enteredCourseText);
+    setEnteredCourseText("");
+  };
+
+  const courseInputHandler = (value) => {
+    return setEnteredCourseText(value);
+  };
   return (
     <Modal
       animationType="slide"
@@ -22,12 +31,22 @@ export default function CourseInput({ visible }) {
           style={styles.imageStyle}
           source={require("../assets/images/ea.png")}
         />
-        <TextInput style={styles.inputStyle} placeholder="Add New Course" />
+        <TextInput
+          style={styles.inputStyle}
+          placeholder="Add New Course"
+          value={enteredCourseText}
+          onChangeText={courseInputHandler}
+        />
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.buttonStyle1} underlayColor="#fff">
+          <TouchableOpacity
+            style={styles.buttonStyle1}
+            underlayColor="#fff"
+            onPress={addCourseHandler}
+            value=""
+          >
             <Text style={styles.textStyle}>Add Course</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonStyle2} underlayColor="#fff">
+          <TouchableOpacity style={styles.buttonStyle2} onPress={onCancel}>
             <Text style={styles.textStyle}>Cancel</Text>
           </TouchableOpacity>
         </View>
