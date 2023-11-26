@@ -38,14 +38,16 @@ export default function App() {
           onAddCourse={addCourse}
           onCancel={endModal}
         />
-
-        <FlatList
-          style={styles.coursesStyle}
-          data={courses}
-          renderItem={({ item }) => {
-            return <Text>{item.text}</Text>;
-          }}
-        />
+        <View style={{ width: "70%" }}>
+          <FlatList
+            data={courses}
+            renderItem={({ item }) => (
+              <View style={styles.flatList}>
+                <Text style={styles.flatItem}>{item.text}</Text>
+              </View>
+            )}
+          />
+        </View>
       </View>
     </>
   );
@@ -71,7 +73,13 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: "center",
   },
-  coursesStyle: {
-    font: 160,
+  flatList: {
+    backgroundColor: "pink",
+    borderRadius: "10px",
+    marginBottom: 10,
+  },
+  flatItem: {
+    padding: 5,
+    alignSelf: "center",
   },
 });
