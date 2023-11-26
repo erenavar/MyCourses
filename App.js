@@ -11,10 +11,14 @@ import CourseInput from "./components/CourseInput";
 
 export default function App() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
-  const [courses, setCourses] = useState(["React Native", "C#"]);
+  const [courses, setCourses] = useState([]);
   const startModal = () => setModalIsVisible(true);
   const endModal = () => setModalIsVisible(false);
   const addCourse = (courseTitle) => {
+    setCourses((currentCourses) => [
+      ...currentCourses,
+      { text: courseTitle, id: Math.random().toString() },
+    ]);
     endModal();
   };
 
@@ -39,7 +43,7 @@ export default function App() {
           style={styles.coursesStyle}
           data={courses}
           renderItem={({ item }) => {
-            return <Text>{item}</Text>;
+            return <Text>{item.text}</Text>;
           }}
         />
       </View>

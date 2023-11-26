@@ -42,7 +42,7 @@ export default function CourseInput({ visible, onAddCourse, onCancel }) {
             style={styles.buttonStyle1}
             underlayColor="#fff"
             onPress={addCourseHandler}
-            value=""
+            value="courseInputHandler"
           >
             <Text style={styles.textStyle}>Add Course</Text>
           </TouchableOpacity>
