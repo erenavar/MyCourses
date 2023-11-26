@@ -44,6 +44,11 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     marginBottom: 40,
+    borderWidth: 1,
+    width: "70%",
+    padding: 10,
+    borderRadius: "10px",
+    borderColor: "#a8065f",
   },
   buttonContainer: {
     width: "70%",
@@ -61,7 +66,7 @@ const styles = StyleSheet.create({
     height: 35,
     borderRadius: "12px",
     marginBottom: 15,
-    backgroundColor: "red",
+    backgroundColor: "#E67B7B",
     justifyContent: "center",
     alignItems: "center",
   },
